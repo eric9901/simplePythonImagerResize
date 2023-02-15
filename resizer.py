@@ -1,15 +1,22 @@
 import sys
 import cv2 as cv
-def resize(filepath):
-        img = cv.imread(filepath)
-        scale_percent = 30
-        width = int(img.shape[1] * scale_percent / 100)
-        height = int(img.shape[0] * scale_percent / 100)
-        dim = (width, height)
+import os
+#para if beening a class
+#img=
+#height
+#width
+#format
+def tgResize(img):
+        height= 512
+        width= 512
+        dim =(height,width)
         smaller_image = cv.resize(img,dim,interpolation = cv.INTER_LINEAR) 
-        cv.imshow('image', smaller_image)
-        print(smaller_image.shape)
-        cv.imwrite('resized.png',smaller_image,[cv.IMWRITE_PNG_COMPRESSION, 0])
+        #cv.imwrite(os.path.join("\Output" , 'resized.png'), img)
+        cv.imwrite('resized.png',smaller_image,[cv.IMWRITE_PNG_COMPRESSION, 1])
         cv.waitKey(0)
         cv.destroyAllWindows()
         sys.exit()
+def resize(StickerFormat,path):
+        if StickerFormat=='tg':
+                img=cv.imread(path)
+                tgResize(img)
