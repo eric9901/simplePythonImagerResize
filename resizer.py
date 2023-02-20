@@ -12,10 +12,7 @@ def tgResize(img):
         dim =(height,width)
         smaller_image = cv.resize(img,dim,interpolation = cv.INTER_LINEAR) 
         #cv.imwrite(os.path.join("\Output" , 'resized.png'), img)
-        cv.imwrite('resized.png',smaller_image,[cv.IMWRITE_PNG_COMPRESSION, 1])
-        cv.waitKey(0)
-        cv.destroyAllWindows()
-        sys.exit()
+        cv.imwrite(str(img,3)+".png",smaller_image,[cv.IMWRITE_PNG_COMPRESSION, 1])
 def resize(StickerFormat,path):
         if StickerFormat=='tg':
                 img=cv.imread(path)
