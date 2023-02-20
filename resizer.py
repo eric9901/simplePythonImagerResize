@@ -6,14 +6,16 @@ import os
 #height
 #width
 #format
-def tgResize(img):
+def tgResize(path):
+        img=cv.imread(path)
         height= 512
         width= 512
         dim =(height,width)
         smaller_image = cv.resize(img,dim,interpolation = cv.INTER_LINEAR) 
         #cv.imwrite(os.path.join("\Output" , 'resized.png'), img)
-        cv.imwrite(str(img,3)+".png",smaller_image,[cv.IMWRITE_PNG_COMPRESSION, 1])
+        
+        print("Output\\"+str(path)[6:-3]+"png")
+        cv.imwrite("Output\\"+str(path)[6:-3]+"png",smaller_image,[cv.IMWRITE_PNG_COMPRESSION, 1])
 def resize(StickerFormat,path):
         if StickerFormat=='tg':
-                img=cv.imread(path)
-                tgResize(img)
+                tgResize(path)
