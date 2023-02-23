@@ -11,5 +11,4 @@ if __name__ == '__main__':
                 resizer.resize('tg',join(path, f))
     except IOError:
         print("file not found")
-    print("Finish") 
     

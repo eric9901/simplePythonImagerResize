@@ -1,0 +1,41 @@
+# ImagerResizer
+Simple Image resize to TG sticker format
+developer command:
+docker build -t resize:1 .
+1 mean version or tag, -t name . mean all
+Mount to the local filesystem
+cmd "%cd%" current directory
+powershell $(pwd)
+docker vm volume direct name
+docker run -v C:\Users\Nelson\Pictures\Output:/Output resizer:1
+--rm remove after container exit --it wait input
+sh terimal control container
+
+--docker file (most difficult and major part of docker image)
+start and build procedure guildline for docker build the image
+FROM python:3.9-slim 
+the Docker Image using, this time we use python 39.slim version
+
+--in stall the system command, if image covered can ignore it
+RUN apt-get update && apt-get install -y --no-install-recommends \
+      bzip2 \
+      g++ \
+      git \
+      graphviz \
+      libgl1-mesa-glx \
+      libhdf5-dev \
+      openmpi-bin \
+      wget \
+      python3-tk && \
+    rm -rf /var/lib/apt/lists/*
+RUN mkdir /app create work directory 
+WORKDIR /app setting the working dir, no need to working directory for furtuer copy and run command
+Copy: copy . . all 
+ADD： if tar.gz copy, Image achive auto
+--requirment.txt
+Function:install depandacy/library
+Need copy first:COPY requirements.txt requirements.txt
+then use pip install RUN pip install -r requirements.txt
+example:
+opencv-python==4.7.0.68 exactly same version
+~=
